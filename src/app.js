@@ -85,7 +85,11 @@ address=req.query.address
             // })
             // console.log(data)
 
-            forecast(latitude,longitude,(error,{temperature,weather})=>{
+            forecast(latitude,longitude,(error,response)=>{
+
+
+
+                // console.log('send time zone ',response)
 
                 if(error){
                    return res.send({'error':error})
@@ -93,9 +97,11 @@ address=req.query.address
                
                     res.send({
                         location:location,
-                        temperature,temperature,
-                        weather_description:weather,
+                        temperature:response.body.current.temperature,
+                        humidity:response.body.current.humidity,
+                        weather_description:response.body.current.weather_descriptions[0],
                         address:req.query.address,
+                        timeZone:response.body.location.timezone_id,
 
                     })
                 

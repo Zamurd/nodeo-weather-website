@@ -26,6 +26,8 @@ message2.textContent=''
 Weatherform.addEventListener('submit',(e)=>{
 message1.textContent='Loading....!'
 message2.textContent=''
+const message3=document.querySelector('#message-3')
+message3.textContent=''
 
     e.preventDefault()
     const location=search.value
@@ -39,8 +41,10 @@ message2.textContent=''
           }
           else{
               message1.textContent="Location "+data.location
-              message2.textContent="temperature "+data.temperature
-              console.log(data)
+              message2.textContent="temperature "+data.temperature+" humidity "+data.humidity
+              message3.textContent='TimeZone_id '+data.timeZone
+
+              // console.log(data)
             //   message2.innerHTML=JSON.stringify(data)
           }
         })

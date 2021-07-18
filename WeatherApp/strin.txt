@@ -1,0 +1,20 @@
+
+// console.log("starting")
+
+// setTimeout(() => {
+//     console.log("time is setted out")
+// }, 2000)
+
+// setTimeout(() => {
+//     console.log("0 second")
+// }, 0)
+// console.log("stopping")
+
+const request = require('request')
+
+const url = 'http://api.weatherstack.com/current?access_key=f2c17246b43d553bbf8633fd72b2dfe6&query=37.82267,-122.4233'
+
+request({ url: url }, (error, response) => {
+    console.log(response)
+
+})
